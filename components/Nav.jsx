@@ -30,7 +30,8 @@ const Nav = () => {
         />
         <p className="logo_text"> Nobody knows</p>
       </Link>
-      {/* Desktop NAv */}
+
+      {/* Desktop NAV */}
       <div className="sm:flex hidden">
         {session?.user ? (
           <div className="flex gap-3 md:gap-5">
@@ -59,7 +60,7 @@ const Nav = () => {
                   onClick={() => signIn(provider.id)}
                   className="black_btn"
                 >
-                  SignIn
+                  SignIn with {provider.name}
                 </button>
               ))}
           </>
@@ -79,7 +80,7 @@ const Nav = () => {
             {toggleDropdown && (
               <div className="dropdown">
                 <Link
-                  href="/profil"
+                  href="/profile"
                   className="dropdown_link"
                   onClick={() => setToggleDropdown(false)}
                 >

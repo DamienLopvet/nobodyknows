@@ -1,11 +1,13 @@
 "use client";
 import { useState } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 
 import  Form  from "@components/Form";
 
 const CreatPost = () => {
+  const router = useRouter();
+  const { data: session } = useSession();
 const [submitting, setSubmitting] = useState(false)
 const [post, setPost] = useState({
     post:'',
@@ -22,12 +24,12 @@ const createPost = async (e) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(
-        {post: post.post,
+        {post: post.body,
           userId: session?.user.id,
           tag: post.tag,
         }),
     })
-    if (res.ok) Router.push('/')
+    if (res.ok) router.push('/')
   } catch (e) {
     throw Error(e.message)
   }finally{

@@ -16,7 +16,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           <span className="font-satoshi font-semibold text-base text-gray-700">Votre Secret</span>
           <textarea 
           value={post.body}
-          onchange={(e) => setPost({ ...post, body: e.target.value })}
+          onChange={(e) => setPost({ ...post, body: e.target.value })}
           placeholder="Votre secret"
           required
           className="form_textarea"
@@ -24,12 +24,13 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
 
           </label>
           <label>
-          <span className="font-satoshi font-semibold text-base text-gray-700">Tag{` `}
+          <span className="font-satoshi font-semibold text-base text-gray-700">Tag{" "}
           <span className="font-normal">(#guerre #sexe #argent)</span>
           </span>
           <input 
           value={post.tag}
-          onchange={(e) => setPost({ ...post, tag: e.target.value })}
+          onChange={(e) => setPost({ ...post, tag: e.target.value })}
+          type='text'
           placeholder="Donnez un tag à votre secret"
           required
           className="form_input"
@@ -40,7 +41,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           <button type="submit"
           disabled={submitting}
           className="px-5 py-1.5 text-sm bg-primary-orange rounded-full text-white">
-            {submitting ? `$(type)...` : "Envoyer"}
+            {submitting ? `${type}...` : "Envoyer"}
           </button>
 
           </div>
